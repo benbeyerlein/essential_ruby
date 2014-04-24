@@ -13,11 +13,13 @@
 #   we usually have to do some research on how the task is done:
 #   http://en.wikipedia.org/wiki/Mortgage_calculator
 
+# This is for a fixed rate loan
+# monthly_pmt =r/(1-(1+r)^-N) * P
 def pmt(rate, nper, pv)
-  # ============================================
-  # Your code to implement the method goes here.
-  # ============================================
+  monthly_pmt = ( rate.to_f / (1 - (1 + rate.to_f) ** -nper)) * pv.to_f
+  return monthly_pmt.round(2)
 end
+ puts "Your monthly payment will be $#{pmt(0.01, 60, 30000)}."
 
 # Example usage of the method:
 
